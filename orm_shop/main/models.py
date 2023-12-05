@@ -26,22 +26,28 @@ FUEL_TYPE_CHOICES = (
     ('electro', 'Электро')
 )
 
+BODY_TYPE_CHOICES = (
+    ('sedan', 'Седан'),
+    ('hatchback', 'Хэтчбек'),
+    ('SUV', 'Внедорожник'),
+    ('wagon', 'Универсал'),
+    ('minivan', 'Минивэн'),
+    ('pickup', 'Пикап'),
+    ('coupe', 'Купе'),
+    ('cabrio', 'Кабриолет')
+)
+
+
+DRIVE_UNIT_CHOICES = (
+    ('rear', 'Задний'),
+    ('front', 'Передний'),
+    ('full', 'Полный')
+)
+
 
 class Car(models.Model):
-    model = models.CharField(max_length=100)
-    year = models.IntegerField()
-    color = models.CharField(max_length=20)
-    volume = models.DecimalField(max_digits=2, decimal_places=1)
-    gearbox = models.CharField(max_length=20, choices=GEARBOX_CHOICES)
-    fuel_type = models.CharField(max_length=20, choices=FUEL_TYPE_CHOICES)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to='cars')
-
-    def __str__(self):
-        return f'{self.model} {self.year} {self.color}'
+    pass  # реализуйте модель
 
 
 class Sale(models.Model):
-    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='purchases')
-    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='sales')
-    created_at = models.DateTimeField(auto_now_add=True)
+    pass  # реализуйте модель
